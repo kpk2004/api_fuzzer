@@ -1,0 +1,9 @@
+{
+  "sqli": ["' OR '1'='1", "'; DROP TABLE users;--", "1 OR 1=1", "\" OR \"\"=\""],
+  "xss": ["<script>alert(1)</script>", "\"><img src=x onerror=alert(1)>"],
+  "path_traversal": ["../../../etc/passwd", "..\\..\\..\\windows\\win.ini"],
+  "ssti": ["{{7*7}}", "${7*7}"],
+  "command_injection_markers": ["; id", "| whoami", "`id`"],
+  "type_confusion": [null, true, -1, 999999999999, "", []],
+  "oversized": "A"
+}
