@@ -78,18 +78,3 @@ python main.py --url https://demo.local --tokens tokens.json \
 
 Reports land in `reports/report.json` and `reports/report.html`.
 
-## Notes on the original script this was built from
-
-The starting snippet had two bugs worth calling out (fixed here):
-
-1. `return end_dict` was indented inside the `for` loop, so the function
-   returned after checking only the very first wordlist entry.
-2. `methods_fuzz(url, wordlist='wordlist.txt', auth, token)` put a
-   non-default argument (`auth`) after a default argument — that's a
-   `SyntaxError` in Python; a function signature can't go back to required
-   args after a default one.
-
-Everything else — hitting a wordlist of paths, then POSTing to a discovered
-endpoint with a captured session token — was the right instinct; it's now
-generalized into reusable modules with actual detection logic instead of a
-single hardcoded example request.
